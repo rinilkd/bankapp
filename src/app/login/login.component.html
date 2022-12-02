@@ -1,0 +1,25 @@
+<div>
+    <h1>{{aim}}</h1>
+</div>
+<h2>Login Page</h2><br>    
+    <div class="login">    
+    <form id="login" method="get" action=" ">    
+        <label><b>Account Number    
+        </b>    
+        </label>    
+        <input type="text" #acno name="Uname" id="Uname" [placeholder]="data">    
+        <br><br>    
+        <label><b>Password     
+        </b>    
+        </label>    
+        <input type="Password" name="Pass" #pass id="Pass" placeholder="Password" >    
+        <br><br>    
+        <input type="submit"(click)="login(acno,pass)" name="log" id="log" value="Log In Here">       
+        <br><br>  
+        <a href="">Sign Up</a>  
+        <input type="checkbox" id="check">    
+        <span>Remember me</span>    
+        <br><br>    
+        Forgot <a href="#">Password</a>    
+    </form>     
+</div>
