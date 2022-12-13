@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -22,9 +25,35 @@ userDetails:any={
   1004:{acno:1004,username:"amal",password:123,balance:0},
   1005:{acno:1005,username:"arun",password:123,balance:0}
 }
-constructor(){ }
-// login(){
-//   // alert('login clicked')
+constructor(private router:Router,private ds:DataService,private fb:FormBuilder){ }
+
+loginForm=this.fb.group({acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+pass:['',[Validators.required,Validators.pattern('[0-9]+')]]})
+
+login(){
+  // alert('login clicked')
+  var acno=this.loginForm.value.acno
+  var pass=this.loginForm.value.pass
+   
+  if(this.loginForm.valid){
+    const result=this.ds.login(acno,pass)
+if(result){
+  alert('login success')
+  this.router.navigateByUrl('dashboard')
+}
+else{
+  alert('incorrect username or password')
+} 
+  }
+  else{
+    alert('invalid form')
+  }
+ 
+
+// login(a:any,b:any){
+//  this.acno=a.value
+//  this.pass=b.value
+
 //   var acno=this.acno
 //   var pass=this.pass
 //   var userDetails=this.userDetails
@@ -42,27 +71,6 @@ constructor(){ }
 //  }
 //   }
 
-login(a:any,b:any){
- this.acno=a.value
- this.pass=b.value
- 
-  var acno=this.acno
-  var pass=this.pass
-  var userDetails=this.userDetails
-
-  if (acno in userDetails) {
- if(pass==userDetails[acno]["password"]){
-  alert("login success")
- }   
- else{
-  alert("incorrect password")
- }
-}
- else{
-  alert("incorrect username")
- }
-  }
-
 // acnoChange(event:any){
 // this.acno=event.target.value
 // }
@@ -71,3 +79,5 @@ login(a:any,b:any){
 
 // }
 }
+}
+

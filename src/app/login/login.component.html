@@ -3,20 +3,27 @@
 </div>
 <h2>Login Page</h2><br>    
     <div class="login">    
-    <form id="login" method="get" action=" ">    
+    <form (ngSubmit)="login()" [formGroup]="loginForm" id="login" method="get" action=" ">    
         <label><b>Account Number    
         </b>    
         </label>    
-        <input type="text" #acno name="Uname" id="Uname" [placeholder]="data">    
+        <input type="text"  name="Uname" formControlName="acno" id="Uname" [placeholder]="data">    
         <br><br>    
+        <div *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched">
+            <p class="text-info">invalid name</p>
+        </div>
         <label><b>Password     
         </b>    
         </label>    
-        <input type="Password" name="Pass" #pass id="Pass" placeholder="Password" >    
+        <input type="Password" name="Pass" formControlName="pass" id="Pass" placeholder="Password" >    
         <br><br>    
-        <input type="submit"(click)="login(acno,pass)" name="log" id="log" value="Log In Here">       
+        <div *ngIf="this.loginForm.get('pass')?.errors && this.loginForm.get('pass')?.touched">
+            <p class="text-info">incorrect name</p>
+        </div>
+
+        <input type="submit"(click)="login()" name="log" id="log" value="Log In Here">       
         <br><br>  
-        <a href="">Sign Up</a>  
+        <a routerLink="register">Sign Up</a>  
         <input type="checkbox" id="check">    
         <span>Remember me</span>    
         <br><br>    

@@ -13,3 +13,75 @@ html-view
         1.2.1 event binding               (eventname)="method name()"
         1.2.2 event binding using $event  (eventname)="methodname($event)"
         1.2.3 event binding using template rendering variable  #variabble
+
+2. two way binding
+     2.1 ngmodel [(ngmodel)]="value"
+                 FormsModule
+
+
+-----------------------
+Redirection in angular
+-----------------------
+
+navigateByUrl -method used to Redirection
+
+Router        -class
+AppRoutingModule   - module 
+
+Dependency injection
+-------------------
+
+- to use a method of class in another class 
+- in constructor
+
+--steps
+access pecifier - public/private
+    variable
+    class name
+            private variable:Classname
+
+Angular Services
+-----------------
+ng g s servicename
+
+angular directives
+-------------------
+1-structural directives to handle structured datas in view of component
+
+          -ngFor -can directively apply in html to access element from array
+
+          -ngIf  -
+
+
+
+form validation in angular
+--------------------------
+
+wee can create forms in two ways
+   1. template driven form
+   2. model driven form
+                -reactive form
+                ---------------
+                ReactiveFormsModule  -module used to create model forms
+                FormBuilder          -class of ReactiveFormsModule
+                             -group,array,control
+
+     validate model form
+     --------------------
+     validator - a class in angulat it includes methods for apply validation
+
+     -access errors in validator rule
+
+             this.registerForm.get('uname')?.errors
+                        -valid   -empty respose
+                        -invalid -content
+
+          if( this.registerForm.get('uname')?.errors){   //*ngIf
+
+          }
+
+          local storage in Angular
+          ------------------------
+          store    localStorage.setItem()
+          access   localStorage.getItem()
+          delete   localStorage.removeItem( )
