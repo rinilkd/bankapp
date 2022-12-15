@@ -13,8 +13,18 @@
 
 <body class="">
     <h1>welcome {{user}}</h1>
+    <h3>{{dateandtime | date: 'short'}}</h3>
     <a  href="" routerLink="/transaction">view trans history</a>
-    <div style="border-radius:20px ;" class="container border border-white w-50 bg-info text-white mt-5 p-2">
+    <div class="text-end p-3">
+        <button (click)="logout()" class="btn btn-outline-danger">logout</button>
+    </div>
+    <div class="text-end p-3">
+        <button (click)="deleteconfirm()" class="btn btn-danger">delete</button>
+    </div>
+
+         <app-deleteconfirm [item]="acno"></app-deleteconfirm>
+
+    <div [ngClass]="acno?'style':''"  style="border-radius:20px ;" class="container border border-white w-50 bg-info text-white mt-5 p-2">
         <h1 class="text-center">Deposit</h1>
         <form (ngSubmit)="deposit()" [formGroup]="depositForm" action="">
             <div class="mt-2 p-2">
@@ -35,7 +45,7 @@
         </form>
     </div>
 
-    <div style="border-radius:20px ;" class="container border border-white w-50 bg-info text-white mt-5 p-2">
+    <div [ngClass]="acno?'style':''"  style="border-radius:20px ;" class="container border border-white w-50 bg-info text-white mt-5 p-2">
         <h1 class="text-center">Withdraw</h1>
         <form (ngSubmit)="withdraw()" [formGroup]="withdrawForm" action="">
            

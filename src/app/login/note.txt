@@ -44,7 +44,7 @@ Angular Services
 -----------------
 ng g s servicename
 
-angular directives
+angular directives - to manage DOM in angular
 -------------------
 1-structural directives to handle structured datas in view of component
 
@@ -52,6 +52,10 @@ angular directives
 
           -ngIf  -
 
+2-component directive
+
+3-attribute directive
+          -[ngclass]
 
 
 form validation in angular
@@ -85,3 +89,15 @@ wee can create forms in two ways
           store    localStorage.setItem()
           access   localStorage.getItem()
           delete   localStorage.removeItem( )
+
+
+parent child components communication in angular
+------------------------------------------------
+
+
+date in angular
+---------------
+
+date - class
+-create an object of class Date to access Date and time
+
